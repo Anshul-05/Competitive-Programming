@@ -26,4 +26,4 @@ struct LineContainer : multiset<Line, less<>> { // max cht
 		auto l = *lower_bound(x);
 		return l.k * x + l.m;
 	}
-};
+};// f(i)=max xjyi+f(j)
