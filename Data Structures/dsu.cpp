@@ -1,9 +1,17 @@
-int p[M];
-int find(int v){
-	return (v==p[v])?v:p[v]=find(p[v]);
-}
-void join(int a,int b){
-	a=find(a),b=find(b);
-	if(rand()%2)swap(a,b);
-	p[b]=a;
-}
+class DSU {
+	public:
+	vector<int> p,sz;
+	DSU(int n) {
+		p=sz=vector<int>(n+1,0);
+		for(int i=0;i<=n;++i) p[i]=i;
+	}
+	int find(int v) {
+		return (v==p[v])?v:p[v]=find(p[v]);
+	}
+	bool join(int a,int b) {
+		if((a=find(a))==(b=find(b))) return 0;
+		if(sz[a]>sz[b]) swap(a,b);
+		p[b]=a,sz[b]+=sz[a];
+		return 1;
+	}
+};
