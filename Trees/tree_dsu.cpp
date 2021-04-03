@@ -12,7 +12,7 @@
 #define rep(i,a,b) for(int i=a;i<b;++i)
 using namespace std;
 
-#define M 100010
+const int M = 1e5 + 10;
 
 vll g[M];
 int n,t,m;
@@ -27,17 +27,16 @@ void run(int u,int pa=0){
 int ans[M],sum;
 int col[M];
 int mx,ch;
-string s;
 void up(int u,int pa,int y){
-	// add smthng
-	for(auto v:g[u])if(v!=pa and v!=ch)up(v,u,y);
+	// add
+	for(auto v:g[u])if(v!=pa and v!=ch) up(v,u,y);
 }
 void dfs(int u,int pa=0,bool ok=1){
-	for(auto v:g[u])if(v!=pa and v!=son[u])dfs(v,u);
-	if(son[u])dfs(son[u],u,0),ch=son[u];
+	for(auto v:g[u])if(v!=pa and v!=son[u]) dfs(v,u);
+	if(son[u]) dfs(son[u],u,0),ch=son[u];
 	up(u,pa,1),ch=0;
-	// do smthng
-	if(ok)up(u,pa,0);
+	// cal answer
+	if(ok) up(u,pa,0);
 }
 int32_t main(){
     ios_base::sync_with_stdio(false);
