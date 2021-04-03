@@ -4,7 +4,7 @@ int LIS(vector<int> &v){
 	vector<int>dp;
 	dp.pb(v[0]);
 	for(int i=1;i<n;++i){
-		auto it=upper_bound(all(dp),v[i]);
+		auto it=upper_bound(all(dp),v[i]); // lower_bound for strictly increasing
 		if(it==dp.end())dp.pb(v[i]);
 		else *it=v[i];
 	}
