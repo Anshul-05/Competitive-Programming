@@ -2,9 +2,10 @@ struct BIT {
 	vector<int> bit;
 	int MAX;
 	public:
+	BIT(){}
 	
 	BIT(int n) {
-		MAX=n+1;
+		MAX=n+10;
 		bit.resize(MAX,0);
 	}
 	
