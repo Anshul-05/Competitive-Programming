@@ -1,6 +1,8 @@
 class DSU {
-	public:
 	vector<int> p,sz;
+	public:
+	DSU(){}
+	
 	DSU(int n) {
 		p=sz=vector<int>(n+1,0);
 		for(int i=0;i<=n;++i) p[i]=i;
